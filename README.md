@@ -41,7 +41,7 @@ docker run --rm -it --net=rosnet --name client \
   p2os:kinetic /bin/bash
 ```
 
-Inside docker terminal:
+Inside docker terminal for activating the motors, teleoperation, and [using the gripper](http://playerstage.sourceforge.net/doc/Player-2.0.0/player/group__interface__gripper.html#gb7487dae409a9df347f091b06a545e46):
 ```
 rostopic pub -1 /cmd_motor_state p2os_msgs/MotorState 1
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
