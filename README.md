@@ -2,7 +2,7 @@
 
 The Pioneer robot is connected through a USB/Serial converter, which appears in Linux as `/dev/ttyUSB0`.
 
-Please make sure that your user belongs to the group `dialout`.
+Please make sure that your user (in the robot PC) belongs to the group `dialout`.
 
 ## Networking containers across multiple hosts (in the same network)
 
