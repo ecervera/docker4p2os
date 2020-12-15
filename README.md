@@ -38,5 +38,5 @@ docker run --rm -it --net=rosnet --name pioneer \
 docker run --rm -it --net=rosnet --name client \
   --env ROS_HOSTNAME=client \
   --env ROS_MASTER_URI=http://pioneer:11311 \
-  osrf/ros:kinetic-desktop-full rosrun teleop_twist_keyboard teleop_twist_keyboard
+  p2os:kinetic rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
