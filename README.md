@@ -38,5 +38,32 @@ docker run --rm -it --net=rosnet --name pioneer \
 docker run --rm -it --net=rosnet --name client \
   --env ROS_HOSTNAME=client \
   --env ROS_MASTER_URI=http://pioneer:11311 \
-  p2os:kinetic rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+  p2os:kinetic /bin/bash
+```
+
+Inside docker terminal:
+```
+rostopic pub -1 /cmd_motor_state p2os_msgs/MotorState 1
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
+```
+Open gripper:
+```
+rostopic pub -1 /gripper_control p2os_msgs/GripperState \
+'{grip: {state: 1, dir: 0, inner_beam: False, outer_beam: False, left_contact: False, right_contact: False}, lift: {state: 0, dir: 0, position: 0.0 }}'
+```
+Close gripper:
+```
+rostopic pub -1 /gripper_control p2os_msgs/GripperState \
+'{grip: {state: 2, dir: 0, inner_beam: False, outer_beam: False, left_contact: False, right_contact: False}, lift: {state: 0, dir: 0, position: 0.0 }}'
+```
+Up gripper:
+```
+rostopic pub -1 /gripper_control p2os_msgs/GripperState \
+'{grip: {state: 4, dir: 0, inner_beam: False, outer_beam: False, left_contact: False, right_contact: False}, lift: {state: 0, dir: 0, position: 0.0 }}'
+
+```
+Down gripper:
+```
+rostopic pub -1 /gripper_control p2os_msgs/GripperState \
+'{grip: {state: 5, dir: 0, inner_beam: False, outer_beam: False, left_contact: False, right_contact: False}, lift: {state: 0, dir: 0, position: 0.0 }}'
 ```
